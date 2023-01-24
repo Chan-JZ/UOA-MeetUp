@@ -31,6 +31,7 @@ var dbConnectionPool = mysql.createPool({
   database: "events_db"
 });
 
+
 app.use(function(req,res,next){
   req.pool = dbConnectionPool;
 
@@ -47,26 +48,11 @@ const transporter = nodemailer.createTransport({
   // host: "smtp-mail.outlook.com",
   port: 587,
   auth: {
-    user: 'q2zulttiyk4jbk4d@ethereal.email',
-    pass: '3TtFuJwF7k4s76cDJD'
+    user: '**********************',
+    pass: '**********************'
   },
 });
 
-// const transporter = nodemailer.createTransport({
-//   service: "Outlook365",
-//   host: "smtp-mail.outlook.com",
-//   secureConnection: false,
-//   // host: "smtp-mail.outlook.com",
-//   port: 587,
-//   auth: {
-//     user: 'a1829554@adelaide.edu.au',
-//     pass: 'n(HOLEcom!c18*'
-//   },
-//   tls : {
-//     ciphers: 'SSLv3',
-//     rejectUnauthorized: false,
-//   },
-// });
 
 app.use(function(req,res,next){
   req.emailService = transporter; // new for nodemailer
